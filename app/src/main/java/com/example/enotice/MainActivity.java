@@ -21,8 +21,8 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 EditText email,password;
-TextView esignup,loginasstd,forgotpassword;
-Button elogin;
+TextView loginasstd,forgotpassword;
+Button elogin,esignup;
 FirebaseAuth firebaseAuth;
 
     @Override
@@ -32,7 +32,7 @@ FirebaseAuth firebaseAuth;
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         email=(EditText)findViewById(R.id.eemail);
         password=(EditText)findViewById(R.id.password);
-        esignup=(TextView) findViewById(R.id.esignup);
+        esignup=(Button) findViewById(R.id.esignup);
         forgotpassword=(TextView)findViewById(R.id.forgotpassword);
         loginasstd=(TextView) findViewById(R.id.loginasstd);
         elogin=(Button) findViewById(R.id.elogin);
@@ -42,7 +42,7 @@ FirebaseAuth firebaseAuth;
         {
             String mail=user.getEmail();
             finish();
-            Intent intent= new Intent(MainActivity.this,incharge_home.class);
+            Intent intent= new Intent(MainActivity.this,homepage.class);
             intent.putExtra("facemail",mail);
             startActivity(intent);
         }
@@ -91,7 +91,8 @@ FirebaseAuth firebaseAuth;
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Intent i = new Intent(MainActivity.this, incharge_home.class);
+                            Intent i = new Intent(MainActivity.this, homepage.class);
+                            i.putExtra("facemail",eemail);
                             startActivity(i);
 
 

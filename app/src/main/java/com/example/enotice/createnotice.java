@@ -6,16 +6,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.app.Notification;
 import android.app.PendingIntent;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.webkit.MimeTypeMap;
@@ -38,8 +43,13 @@ import com.android.volley.toolbox.Volley;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ServerValue;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
@@ -49,7 +59,12 @@ import com.google.firebase.storage.UploadTask;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 import static com.example.enotice.App.CHANNEL_1_ID;
@@ -59,13 +74,15 @@ public class createnotice extends AppCompatActivity implements AdapterView.OnIte
     EditText title, description;
     Button choosefile;
     private static final int PICK_IMAGE_REQUEST = 1;
+    final static int PICK_PDF_CODE = 2342;
     private static final String TAG = "";
     Button post;
     Uri imageuri;
-    Spinner spinner;
+
     Toolbar toolbar;
-    String text;
+    String text,category;
     DatabaseReference databaseReference;
+    TextView test;
     private StorageReference storageReference;
     private NotificationManagerCompat notificationManager;
     private RequestQueue mRequestQue;
@@ -84,13 +101,14 @@ public class createnotice extends AppCompatActivity implements AdapterView.OnIte
         post = (Button) findViewById(R.id.post);
         choosefile = (Button) findViewById(R.id.choosefile);
         progressBar=(ProgressBar)findViewById(R.id.progressBar);
-        spinner=(Spinner)findViewById(R.id.spinner);
+
+        test=(TextView)findViewById(R.id.category);
         storageReference = FirebaseStorage.getInstance().getReference("notice");
         databaseReference = FirebaseDatabase.getInstance().getReference("notice");
+
         ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(this,R.array.category,android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(this);
+
         progressBar.setVisibility(View.INVISIBLE);
 
         choosefile.setOnClickListener(new View.OnClickListener() {
@@ -112,18 +130,36 @@ public class createnotice extends AppCompatActivity implements AdapterView.OnIte
 
 
     private void openFileChooser() {
-        Intent i = new Intent();
+        /*Intent i = new Intent();
         i.setType("image/*");
         i.setAction(i.ACTION_GET_CONTENT);
-        startActivityForResult(i.createChooser(i, "Select Picture"), PICK_IMAGE_REQUEST);
+        startActivityForResult(i.createChooser(i, "Select Picture"), PICK_IMAGE_REQUEST);*/
+
+
+        //creating an intent for file chooser
+        Intent intent = new Intent();
+        intent.setType("application/pdf");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_PDF_CODE);
 
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+        /*super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
             imageuri = data.getData();
+        }*/
+        super.onActivityResult(requestCode, resultCode, data);
+        //when the user choses the file
+        if (requestCode == PICK_PDF_CODE && resultCode == RESULT_OK && data != null && data.getData() != null) {
+            //if a file is selected
+            if (data.getData() != null) {
+                //uploading the file
+                imageuri=data.getData();
+            }else{
+                Toast.makeText(this, "No file chosen", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
@@ -145,8 +181,33 @@ public class createnotice extends AppCompatActivity implements AdapterView.OnIte
             final StorageReference filereference = storageReference.child(System.currentTimeMillis() + "." + getFileExtension(imageuri));
             final String noticetitle = title.getText().toString();
             final String noticedes = description.getText().toString();
-            final String email=incharge_home.getValue();
+            final String email=homepage.getValue();
+            Query query= FirebaseDatabase.getInstance().getReference("student").orderByChild("email").equalTo(email);
+            query.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    Iterable<DataSnapshot> children =dataSnapshot.getChildren();
+                    for(DataSnapshot child : children){
+                        incharge upload= child.getValue(incharge.class);
+                       category=upload.phone;
+                        test.setText(settings.getComputern());
+
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+           /* Date date = new Date();
+            Date newDate = new Date(date.getTime() + (604800000L * 2) + (24 * 60 * 60));
+            SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");*/
+            //Calendar calendar=Calendar.getInstance();
+            //final String stringdate = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
             //adding the file to reference
+            SimpleDateFormat sdf=new SimpleDateFormat("yyyy/mm/dd  hh:mm aa", Locale.getDefault());
+            final String stringdate=sdf.format(new Date());
             filereference.putFile(imageuri)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
@@ -160,7 +221,7 @@ public class createnotice extends AppCompatActivity implements AdapterView.OnIte
                             Task<Uri> urlTask= taskSnapshot.getStorage().getDownloadUrl();
                             while (!urlTask.isSuccessful());
                             Uri downloadUrl=urlTask.getResult();
-                            FileUpload upload = new FileUpload(downloadUrl.toString(), noticetitle, noticedes,text,email);
+                            Upload upload = new Upload(noticedes,downloadUrl.toString(),category, noticetitle,email,stringdate);
                             databaseReference.push().setValue(upload);
                             if (getIntent().hasExtra("ecategory")){
                                 Intent intent = new Intent(createnotice.this,fileActivity.class);
@@ -169,9 +230,9 @@ public class createnotice extends AppCompatActivity implements AdapterView.OnIte
                                 startActivity(intent);
                             }
                             String cat="";
-                            if(text.equals(settings.getGtun())||text.equals(settings.getGeneraln())||text.equals(settings.getLibraryn())||text.equals(settings.getComputern())||text.equals(settings.getCiviln())
-                                    ||text.equals(settings.getMechanicaln())||text.equals(settings.getElectricaln())||text.equals(settings.getEcn())||text.equals(settings.getCddmn())) {
-                                cat = text;
+                            if(category.equals(settings.getGtun())||category.equals(settings.getGeneraln())||category.equals(settings.getLibraryn())||category.equals(settings.getComputern())||category.equals(settings.getCiviln())
+                                    ||category.equals(settings.getMechanicaln())||category.equals(settings.getElectricaln())||category.equals(settings.getEcn())||category.equals(settings.getCddmn())) {
+                                cat = category;
 
                                 mRequestQue = Volley.newRequestQueue(getApplicationContext());
                                 FirebaseMessaging.getInstance().subscribeToTopic(cat);
@@ -251,7 +312,7 @@ public class createnotice extends AppCompatActivity implements AdapterView.OnIte
 
             JSONObject extraData = new JSONObject();
 
-            extraData.put("ecategory",text);
+            extraData.put("ecategory",category);
 
 
 

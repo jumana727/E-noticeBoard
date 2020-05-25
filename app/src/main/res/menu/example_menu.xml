@@ -1,18 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
+<group>
     <item android:id="@+id/createnotice"
         android:title="create notice"
         app:showAsAction="never"
+        android:icon="@drawable/ic_add_black_24dp"
         />
     <item android:id="@+id/logout"
         android:title="log out"
+        android:icon="@drawable/ic_exit_to_app_black_24dp"
         app:showAsAction="never"/>
     <item android:id="@+id/Mynotices"
         android:title="My notices"
+        android:icon="@drawable/ic_library_books_black_24dp"
         app:showAsAction="never"/>
+</group>
+    <group>
     <item android:id="@+id/settings"
         android:title="Settings"
+        android:icon="@drawable/ic_settings_black_24dp"
         app:showAsAction="never"/>
+        <item android:id="@+id/aboutus"
+            android:title="About us"
+            android:icon="@drawable/ic_info_black_24dp"
+            app:showAsAction="never"/>
+    </group>
 </menu>

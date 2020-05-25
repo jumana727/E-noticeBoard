@@ -61,31 +61,12 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.475" />
 
-    <EditText
-        android:id="@+id/phone"
-        android:layout_width="230dp"
-        android:layout_height="35dp"
-        android:background="@color/aliceblue"
-        android:ems="10"
-        android:hint="phone no"
-        android:inputType="textPersonName"
-        android:textColor="@color/colorPrimary"
-        android:textColorHint="@color/colorPrimary"
-        android:textSize="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.447"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.377" />
-
     <Button
         android:id="@+id/esignup"
-        android:layout_width="230dp"
-        android:layout_height="35dp"
-        android:background="@drawable/round_button"
+        android:layout_width="169dp"
+        android:layout_height="41dp"
+        android:background="@drawable/round_image"
         android:text="sign up"
-        android:textColor="@color/colorPrimary"
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -98,10 +79,10 @@
         android:id="@+id/elogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="already registered?login"
+        android:text="already registered? Login"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@color/beige"
-        android:textSize="15dp"
+        android:textColor="@color/aliceblue"
+        android:textSize="19dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.46"
@@ -127,18 +108,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.66" />
 
-    <TextView
-        android:id="@+id/textView21"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sign-Up"
-        android:textColor="@color/beige"
-        android:textSize="35dp"
+    <Spinner
+        android:id="@+id/spinner2"
+        android:layout_width="230dp"
+        android:layout_height="35dp"
+        android:background="@color/aliceblue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.457"
+        app:layout_constraintHorizontal_bias="0.447"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.109" />
+        app:layout_constraintVertical_bias="0.379" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

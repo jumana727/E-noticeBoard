@@ -30,8 +30,14 @@ public class Query extends AppCompatActivity {
              databaseReference.addValueEventListener(new ValueEventListener() {
                  @Override
                  public void onDataChange(DataSnapshot dataSnapshot) {
-                     String newmessage=dataSnapshot.child("message").getValue(String.class);
-                     myText.setText(newmessage);
+                     Iterable<DataSnapshot> children =dataSnapshot.getChildren();
+                     for(DataSnapshot child : children){
+                         String newmessage=child.getValue(String.class);
+                         String text=myText.getText().toString();
+                         myText.setText(text+newmessage);
+
+                     }
+
                  }
                  @Override
                  public void onCancelled(DatabaseError databaseError) {

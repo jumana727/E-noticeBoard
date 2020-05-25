@@ -5,4 +5,12 @@
         android:title="settings"
         app:showAsAction="never"
         />
+    <item android:id="@+id/loginasfaculty"
+        android:title="Log in as Faculty"
+        app:showAsAction="never"
+        />
+    <item android:id="@+id/aboutus"
+        android:title="About Us"
+        app:showAsAction="never"
+        />
 </menu>

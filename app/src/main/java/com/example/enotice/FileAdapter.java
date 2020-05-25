@@ -38,6 +38,7 @@ public class FileAdapter extends RecyclerView.Adapter<FileAdapter.ImageViewHolde
 
         holder.title.setText(uploadCurrent.getTitle());
         holder.des.setText(uploadCurrent.getDes());
+        holder.datetime.setText(uploadCurrent.getDate());
         /*Picasso.with(mContext)
                 .load(uploadCurrent.getMimageurl())
                 .placeholder(R.mipmap.ic_launcher)
@@ -56,7 +57,7 @@ public class FileAdapter extends RecyclerView.Adapter<FileAdapter.ImageViewHolde
     public class ImageViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         public TextView title;
         public ImageView image;
-        public TextView des;
+        public TextView des,datetime;
 
         public ImageViewHolder(View itemView) {
             super(itemView);
@@ -64,6 +65,7 @@ public class FileAdapter extends RecyclerView.Adapter<FileAdapter.ImageViewHolde
             title = itemView.findViewById(R.id.title);
             image = itemView.findViewById(R.id.image);
             des=itemView.findViewById(R.id.des);
+            datetime=itemView.findViewById(R.id.datetime);
             itemView.setOnClickListener(this);
 
         }

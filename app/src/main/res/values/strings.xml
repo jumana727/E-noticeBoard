@@ -17,15 +17,15 @@
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
     <string-array name="category">
-        <item>computer</item>
-        <item>civil</item>
-        <item>ec</item>
-        <item>electrical</item>
-        <item>mechanical</item>
-        <item>cddm</item>
-        <item>general</item>
-        <item>gtu</item>
-        <item>library</item>
+        <item>Computer</item>
+        <item>Civil</item>
+        <item>Ec</item>
+        <item>Electrical</item>
+        <item>Mechanical</item>
+        <item>Cddm</item>
+        <item>General</item>
+        <item>Gtu</item>
+        <item>Library</item>
 
     </string-array>
     <string name="title_activity_main2">Main2Activity</string>

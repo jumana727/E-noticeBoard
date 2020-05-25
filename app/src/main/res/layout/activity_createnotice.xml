@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@color/lightgray"
     tools:context=".createnotice">
 
     <include
@@ -12,15 +12,16 @@
         layout="@layout/toolbar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"></include>
+        app:layout_constraintVertical_bias="0.533"></include>
 
     <EditText
         android:id="@+id/title"
         android:layout_width="230dp"
         android:layout_height="35dp"
-        android:background="@color/aliceblue"
+        android:background="#ffffff"
         android:ems="10"
         android:textSize="15dp"
         android:hint="write title"
@@ -37,21 +38,21 @@
     <EditText
         android:id="@+id/description"
         android:layout_width="230dp"
-        android:layout_height="35dp"
-        android:background="@color/aliceblue"
+        android:layout_height="90dp"
+        android:background="#ffffff"
         android:ems="10"
-        android:textSize="15dp"
         android:gravity="start|top"
         android:hint="add description"
         android:inputType="textMultiLine"
         android:textColor="@color/colorPrimary"
         android:textColorHint="@color/colorPrimary"
+        android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.513"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.466" />
+        app:layout_constraintVertical_bias="0.499" />
 
     <Button
         android:id="@+id/post"
@@ -59,40 +60,29 @@
         android:layout_height="38dp"
         android:background="@drawable/round_button"
         android:text="post"
-        android:textColor="@color/colorPrimary"
-        android:textSize="15dp"
+        android:textColor="@color/aliceblue"
+        android:textSize="19dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.777" />
+        app:layout_constraintVertical_bias="0.743" />
 
     <Button
         android:id="@+id/choosefile"
-        android:layout_width="230dp"
+        android:layout_width="220dp"
         android:layout_height="38dp"
         android:background="@drawable/round_button"
-        android:text="choose file"
-        android:textSize="15dp"
-        android:textColor="@color/colorPrimary"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.513"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.686" />
+        android:text="Select file"
+        android:textColor="@color/aliceblue"
+        android:textSize="19dp"
 
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="230dp"
-        android:layout_height="35dp"
-        android:background="@color/aliceblue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.513"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.56" />
+        app:layout_constraintVertical_bias="0.653" />
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -103,5 +93,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.863" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

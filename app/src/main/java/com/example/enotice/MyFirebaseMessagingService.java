@@ -14,7 +14,6 @@ import androidx.core.app.NotificationCompat;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
-
 import java.util.Map;
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
@@ -34,7 +33,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 new NotificationCompat.Builder(this, "TAC")
                         .setContentTitle(title)
                         .setContentText(body)
-                        .setSmallIcon(R.drawable.ic_launcher_background);
+                        .setSmallIcon(R.drawable.nlogo);
 
         Intent intent;
         if (category.equals("shoes")) {

@@ -7,108 +7,110 @@
     android:background="@color/primary"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="E-Notice"
-        android:textSize="35dp"
-        android:textColor="@color/beige"
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image"
+        android:layout_width="108dp"
+        android:layout_height="91dp"
+        android:src="@drawable/bluelogo"
+
+        app:civ_border_color="#FF000000"
+        app:civ_border_width="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.214" />
+        app:layout_constraintVertical_bias="0.147" />
 
     <EditText
         android:id="@+id/password"
-        android:layout_width="230dp"
-        android:layout_height="35dp"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
         android:background="@color/aliceblue"
         android:drawableLeft="@drawable/ic_action_pass"
         android:ems="10"
-        android:textSize="15dp"
         android:hint="password"
         android:inputType="textPassword"
         android:textColor="@color/colorPrimary"
         android:textColorHint="@color/colorPrimary"
+        android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.414"
+        app:layout_constraintHorizontal_bias="0.465"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.512" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/eemail"
-        android:layout_width="234dp"
-        android:layout_height="35dp"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
         android:background="@color/aliceblue"
         android:drawableLeft="@drawable/ic_action_abd"
         android:ems="10"
         android:hint="E-mail"
-        android:textSize="15dp"
         android:inputType="textPersonName"
         android:textColor="@color/colorPrimary"
         android:textColorHint="@color/colorPrimary"
+        android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.424"
+        app:layout_constraintHorizontal_bias="0.465"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.396" />
+        app:layout_constraintVertical_bias="0.4" />
 
     <Button
         android:id="@+id/elogin"
-        android:layout_width="230dp"
-        android:layout_height="35dp"
-        android:background="@drawable/round_button"
+        android:layout_width="110dp"
+        android:layout_height="51dp"
+        android:background="@drawable/round_image"
         android:text="log in"
-        android:textSize="15dp"
         android:textColor="@color/colorPrimary"
+        android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.414"
+        app:layout_constraintHorizontal_bias="0.203"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.701" />
+        app:layout_constraintVertical_bias="0.68" />
+
+    <Button
+        android:id="@+id/esignup"
+        android:layout_width="110dp"
+        android:layout_height="51dp"
+        android:background="@drawable/round_image"
+        android:text="Sign up"
+        android:textColor="@color/colorPrimary"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.748"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.68" />
 
     <TextView
         android:id="@+id/loginasstd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Log in as student"
-        android:textColor="@color/beige"
-        android:textSize="15dp"
+        android:text="Log in as student >>"
+        android:textColor="#ffffff"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.427"
+        app:layout_constraintHorizontal_bias="0.459"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.825" />
-
-    <TextView
-        android:id="@+id/esignup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Not registered yet? Sign up"
-        android:textColor="@color/beige"
-        android:textSize="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.439"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.776" />
+        app:layout_constraintVertical_bias="0.782" />
 
     <TextView
         android:id="@+id/forgotpassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Forgot Password?"
-        android:textColor="@color/beige"
-        android:textSize="15dp"
+        android:textColor="#ffffff"
+        android:textSize="19dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.641"

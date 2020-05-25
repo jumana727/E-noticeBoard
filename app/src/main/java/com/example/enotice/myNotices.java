@@ -1,6 +1,7 @@
 package com.example.enotice;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -24,7 +25,7 @@ import java.util.List;
 public class myNotices extends AppCompatActivity implements ImageAdapter.OnItemClickListener{
     private RecyclerView myRecyclerView;
     private ImageAdapter mAdapter;
-
+Toolbar toolbar;
     private ProgressBar mProgressCircle;
     private FirebaseStorage mStorage;
     private DatabaseReference mDatabaseRef;
@@ -37,20 +38,20 @@ public class myNotices extends AppCompatActivity implements ImageAdapter.OnItemC
         myRecyclerView = findViewById(R.id.myrecycler_view);
         myRecyclerView.setHasFixedSize(true);
         myRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-
+        toolbar=(Toolbar)findViewById(R.id.tb3);
         mProgressCircle = findViewById(R.id.myprogress_circle);
         Intent i=getIntent();
         String cat=i.getStringExtra("ecategory");
         mUploads = new ArrayList<Upload>();
         mAdapter = new ImageAdapter(myNotices.this, mUploads);
-
+        toolbar.setTitle("My Notices");
         myRecyclerView.setAdapter(mAdapter);
         mAdapter.setOnItemClickListener(myNotices.this);
         mStorage=FirebaseStorage.getInstance();
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("notice");
-        String email=incharge_home.getValue();
+        String email=homepage.getValue();
 
-        Query query= FirebaseDatabase.getInstance().getReference("notice").orderByChild("facname").equalTo(email);
+        Query query= FirebaseDatabase.getInstance().getReference("notice").orderByChild("facMail").equalTo(email);
         mDBlistener= query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

@@ -20,7 +20,7 @@ public class incharge_home extends AppCompatActivity {
 FirebaseAuth firebaseAuth;
 
     private static String value;
-    public static String getValue(){
+    public static String getVvalue(){
         return value;
     }
     Button department,gtu,general,library;

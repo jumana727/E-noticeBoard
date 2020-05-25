@@ -61,7 +61,7 @@ public class settings extends AppCompatActivity {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     if(gtu.isChecked()){
-                        gtun="gtu";
+                        gtun="Gtu";
                         sharedPreferences.edit().putBoolean("isChecked",true).apply();
                     }
                     else{
@@ -79,7 +79,7 @@ public class settings extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(general.isChecked()){
                     gensharedPreferences.edit().putBoolean("generalnm",true).apply();
-                    generaln="general";
+                    generaln="General";
                 }
                 else {
                     gensharedPreferences.edit().putBoolean("generalnm",false).apply();
@@ -95,7 +95,7 @@ public class settings extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(library.isChecked()){
-                    libraryn="library";
+                    libraryn="Library";
                     libsharedPreferences.edit().putBoolean("libr",true).apply();
                 }
                 else {
@@ -104,7 +104,7 @@ public class settings extends AppCompatActivity {
                 }
             }
         });
-        Boolean computervalue =false;
+        Boolean computervalue =true;
         final SharedPreferences bsharedPreferences=getSharedPreferences("com",0);
         computervalue= bsharedPreferences.getBoolean("com",computervalue);
         computer.setChecked(computervalue);
@@ -112,8 +112,9 @@ public class settings extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(computer.isChecked()){
-                    computern="computer";
+
                     bsharedPreferences.edit().putBoolean("com",true).apply();
+                    computern="Computer";
                 }
                 else {
                     computern="";
@@ -121,7 +122,7 @@ public class settings extends AppCompatActivity {
                 }
             }
         });
-        Boolean civilvalue =false;
+        Boolean civilvalue =true;
         final SharedPreferences csharedPreferences=getSharedPreferences("civilv",0);
         civilvalue= csharedPreferences.getBoolean("civilv",civilvalue);
         civil.setChecked(civilvalue);
@@ -129,8 +130,9 @@ public class settings extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(civil.isChecked()){
-                    civiln="civil";
+
                     csharedPreferences.edit().putBoolean("civilv",true).apply();
+                    civiln="Civil";
                 }
                 else {
                     civiln="";
@@ -146,7 +148,7 @@ public class settings extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(mechanical.isChecked()){
-                    mechanicaln="mechanical";
+                    mechanicaln="Mechanical";
                     dsharedPreferences.edit().putBoolean("mech",true).apply();
                 }
                 else {
@@ -163,7 +165,7 @@ public class settings extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(electrical.isChecked()){
-                    electricaln="electrical";
+                    electricaln="Electrical";
                     esharedPreferences.edit().putBoolean("elec",true).apply();
                 }
                 else {
@@ -180,7 +182,7 @@ public class settings extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(ec.isChecked()){
-                    ecn="ec";
+                    ecn="Ec";
                     sharedPreferences1.edit().putBoolean("ec",true).apply();
                 }
                 else {
@@ -197,7 +199,7 @@ public class settings extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(cddm.isChecked()){
-                    cddmn="cddm";
+                    cddmn="Cddm";
                     sharedPreferences2.edit().putBoolean("cddm",true).apply();
                 }
                 else {

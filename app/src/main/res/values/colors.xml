@@ -2,9 +2,20 @@
 <resources>
     <color name="colorPrimary">#36648B</color>
     <color name="colorPrimaryDark">#000000</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="coloraccent">#D81B60</color>
     <color name="steelblue">#36648B</color>
-    <color name="aliceblue">#CFE6FA</color>
+    <color name="aliceblue">#E7F0F7</color>
     <color name="primary">#226089</color>
     <color name="dark">#000000</color>
-    <color name="beige">#e3c4a8</color></resources>
+    <color name="beige">#e3c4a8</color>
+    <color name="yellow">#F1F5FF</color>
+    <color name="lightgray">#C7CED6</color>
+    <color name="deeppurple">#B099F0</color>
+    <color name="yello">#F1CC74</color>
+    <color name="green">#00bfa5</color>
+    <color name="colorAccent">#F76E9D</color>
+    <color name="darkblue">#6775AA</color>
+    <color name="testcolorblue">#5395BD</color>
+    <color name="pink">#F36D8F</color>
+    <color name="lightergray">#F1EFEF</color>
+</resources>

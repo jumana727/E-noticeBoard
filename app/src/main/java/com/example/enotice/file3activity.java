@@ -1,6 +1,7 @@
 package com.example.enotice;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,7 +26,7 @@ import java.util.List;
 public class file3activity extends AppCompatActivity implements FileAdapter.OnItemClickListener  {
     private RecyclerView mnRecyclerView;
     private FileAdapter mAdapter;
-
+    private Toolbar toolbar;
     private ProgressBar mProgressCircle;
     private FirebaseStorage mStorage;
     private DatabaseReference mDatabaseRef;
@@ -39,10 +40,11 @@ public class file3activity extends AppCompatActivity implements FileAdapter.OnIt
         mnRecyclerView = findViewById(R.id.mrecycler_view);
         mnRecyclerView.setHasFixedSize(true);
         mnRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-
+        toolbar=(Toolbar)findViewById(R.id.tb2);
         mProgressCircle = findViewById(R.id.mprogress_circle);
         Intent i=getIntent();
         String cat=i.getStringExtra("ecategory");
+        toolbar.setTitle(cat+" Notices");
         mUploads = new ArrayList<Upload>();
         mAdapter = new FileAdapter(file3activity.this, mUploads);
 

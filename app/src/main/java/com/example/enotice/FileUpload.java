@@ -1,9 +1,15 @@
 package com.example.enotice;
 import com.google.firebase.database.IgnoreExtraProperties;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Map;
+
 @IgnoreExtraProperties
 public class FileUpload {
         public String mimageurl;
         public String title,des,etext,facname;
+
 
     public FileUpload() {
     }
@@ -15,7 +21,10 @@ public class FileUpload {
         this.etext=etext;
         this.facname=facname;
 
+
     }
+
+
 
     public String getEtext() {
         return etext;

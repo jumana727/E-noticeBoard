@@ -16,7 +16,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.squareup.picasso.Picasso;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 
 class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHolder> {
@@ -42,9 +47,11 @@ class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHolder> {
         @Override
         public void onBindViewHolder(ImageViewHolder holder, int position) {
             Upload uploadCurrent = mUploads.get(position);
+                holder.title.setText(uploadCurrent.getEtext()+" Department");
+               holder.des.setText(uploadCurrent.getTitle());
+                holder.datetime.setText(uploadCurrent.getDate());
 
-                holder.title.setText(uploadCurrent.getTitle());
-                holder.des.setText(uploadCurrent.getDes());
+
                /* Picasso.with(mContext)
                     .load(uploadCurrent.getMimageurl())
                     .placeholder(R.mipmap.ic_launcher)
@@ -64,13 +71,14 @@ class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHolder> {
             public TextView title;
             public ImageView image;
             public TextView des;
-
+            public TextView datetime;
             public ImageViewHolder(View itemView) {
                 super(itemView);
 
                 title = itemView.findViewById(R.id.title);
                 image = itemView.findViewById(R.id.image);
                 des=itemView.findViewById(R.id.des);
+                datetime=itemView.findViewById(R.id.datetime);
                 itemView.setOnClickListener(this);
                 itemView.setOnCreateContextMenuListener(this);
             }
@@ -114,5 +122,6 @@ class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHolder> {
         public void setOnItemClickListener(OnItemClickListener listener){
            mlistener=listener;
         }
+
     }
 

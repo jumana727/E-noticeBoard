@@ -3,6 +3,7 @@ package com.example.enotice;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -14,20 +15,21 @@ import android.view.View;
 import android.widget.Button;
 
 public class home extends AppCompatActivity {
-Button department,gtu,general,library;
+CardView department,gtu,general,library;
     Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-         toolbar=findViewById(R.id.toolbar1);
+         toolbar=findViewById(R.id.tbhome);
         setSupportActionBar(toolbar);
-        toolbar.setTitle("Home");
-        department=(Button)findViewById(R.id.department);
-        general=(Button)findViewById(R.id.general);
-        gtu=(Button)findViewById(R.id.gtu);
-        library=(Button)findViewById(R.id.library);
+        getSupportActionBar().setTitle("Home");
+
+        department=(CardView) findViewById(R.id.department);
+        general=(CardView) findViewById(R.id.general);
+        gtu=(CardView) findViewById(R.id.gtu);
+        library=(CardView) findViewById(R.id.library);
         department.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -39,7 +41,7 @@ Button department,gtu,general,library;
             @Override
             public void onClick(View v) {
                 Intent i=new Intent(getApplicationContext(),file3activity.class);
-                i.putExtra("ecategory", "general");
+                i.putExtra("ecategory", "General");
                 startActivity(i);
             }
         });
@@ -47,7 +49,7 @@ Button department,gtu,general,library;
             @Override
             public void onClick(View v) {
                 Intent i=new Intent(getApplicationContext(),file3activity.class);
-                i.putExtra("ecategory", "gtu");
+                i.putExtra("ecategory", "Gtu");
                 startActivity(i);
             }
         });
@@ -55,7 +57,7 @@ Button department,gtu,general,library;
             @Override
             public void onClick(View v) {
                 Intent i=new Intent(getApplicationContext(),file3activity.class);
-                i.putExtra("ecategory", "library");
+                i.putExtra("ecategory", "Library");
                 startActivity(i);
             }
         });
@@ -72,6 +74,14 @@ Button department,gtu,general,library;
             case R.id.settings:
                 Intent i = new Intent(getApplicationContext(), settings.class);
                 startActivity(i);
+                return true;
+            case R.id.loginasfaculty:
+                Intent j = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(j);
+                return true;
+            case R.id.aboutus:
+                Intent k = new Intent(getApplicationContext(), about_us.class);
+                startActivity(k);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

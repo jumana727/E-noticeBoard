@@ -1,175 +1,275 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".department_student"
-    >
+    tools:context="com.example.enotice.homepage"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="@color/lightgray"
+    android:id="@+id/ll">
+        <include
+            layout="@layout/toolbar"
+            android:id="@+id/dept_tb"
 
-        <TextView
-            android:id="@+id/textView14"
-            android:layout_width="wrap_content"
+            ></include>
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="EC"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/steelblue"
-            android:textSize="15dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.213"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.683" />
+            android:clipToPadding="false"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingTop="30dp">
 
-        <Button
-            android:id="@+id/mechanical"
-            android:layout_width="95dp"
-            android:layout_height="95dp"
-            android:background="@drawable/mechanical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.152"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.872" />
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/computer"
+                    android:layout_width="140dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardCornerRadius="8dp">
 
-        <TextView
-            android:id="@+id/textView16"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Mechanical"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/steelblue"
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="0dp">
 
-            android:textSize="15dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.167"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.942" />
+                                <ImageView
+                                    android:layout_width="64dp"
+                                    android:layout_height="64dp"
+                                    android:background="@drawable/round_button"
+                                    android:src="@drawable/computer" />
 
-        <Button
-            android:id="@+id/cddm"
-            android:layout_width="95dp"
-            android:layout_height="95dp"
-            android:background="@drawable/cddm"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.769"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.872" />
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:layout_margin="10dp"
+                                    android:background="@color/aliceblue" />
 
-        <TextView
-            android:id="@+id/textView17"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="CDDM"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/steelblue"
-            android:textSize="15dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.727"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.942" />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:padding="5dp"
 
-        <Button
-            android:id="@+id/library"
-            android:layout_width="95dp"
-            android:layout_height="95dp"
-            android:background="@drawable/ec"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.152"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.567" />
+                                    android:text="Computer"
+                                    android:textColor="@color/colorPrimary" />
 
-        <Button
-            android:id="@+id/general"
-            android:layout_width="95dp"
-            android:layout_height="95dp"
-            android:background="@drawable/electrical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.769"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.567" />
+                        </LinearLayout>
+                </androidx.cardview.widget.CardView>
 
-        <TextView
-            android:id="@+id/textView15"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Electrical"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/steelblue"
-            android:textSize="15dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.732"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.684" />
+                <androidx.cardview.widget.CardView
+                    android:layout_width="140dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:id="@+id/civil"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardCornerRadius="8dp">
 
-        <Button
-            android:id="@+id/computer"
-            android:layout_width="95dp"
-            android:layout_height="95dp"
-            android:background="@drawable/computer"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.152"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.266" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/gtu"
-            android:layout_width="95dp"
-            android:layout_height="95dp"
-            android:background="@drawable/civil"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.769"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.266" />
+                                <ImageView
+                                    android:layout_width="64dp"
+                                    android:layout_height="64dp"
+                                    android:background="@drawable/round_button"
+                                    android:padding="10dp"
+                                    android:src="@drawable/civil" />
 
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Civil"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@color/steelblue"
-        android:textSize="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.694"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.424" />
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:layout_margin="10dp"
+                                    android:background="@color/aliceblue" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:padding="5dp"
+                                    android:text="Civil"
+                                    android:textColor="@color/colorPrimary" />
+
+                        </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:clipToPadding="false"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+                <androidx.cardview.widget.CardView
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:id="@+id/ec"
+                    android:layout_width="140dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    app:cardCornerRadius="8dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center">
+                                <ImageView
+                                    android:layout_width="64dp"
+                                    android:layout_height="64dp"
+                                    android:background="@drawable/round_button"
+                                    android:src="@drawable/ec"
+                                    android:padding="10dp"/>
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/aliceblue"
+                                    android:layout_margin="10dp"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="E.C"
+                                    android:padding="5dp"
+                                    android:textColor="@color/colorPrimary"/>
+
+                        </LinearLayout>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:layout_width="140dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:id="@+id/mechanical"
+                    app:cardCornerRadius="8dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="64dp"
+                                    android:layout_height="64dp"
+                                    android:background="@drawable/round_button"
+                                    android:padding="10dp"
+                                    android:src="@drawable/mechanical" />
 
 
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:layout_margin="10dp"
+                                    android:background="@color/aliceblue" />
 
-    <TextView
-            android:id="@+id/textView12"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Computer"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/steelblue"
-            android:textSize="15dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.194"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.424" />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:padding="5dp"
+                                    android:text="Mechanical"
+                                    android:textColor="@color/colorPrimary" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                        </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:clipToPadding="false"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+                <androidx.cardview.widget.CardView
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:id="@+id/electrical"
+                    android:layout_width="140dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    app:cardCornerRadius="8dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center">
+                                <ImageView
+                                    android:layout_width="64dp"
+                                    android:layout_height="64dp"
+                                    android:background="@drawable/round_button"
+                                    android:src="@drawable/electrical"
+                                    android:padding="10dp"/>
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/aliceblue"
+                                    android:layout_margin="10dp"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="Electrical"
+                                    android:padding="5dp"
+                                    android:textColor="@color/colorPrimary"/>
+
+                        </LinearLayout>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:layout_width="140dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="10dp"
+                    android:id="@+id/cddm"
+                    app:cardCornerRadius="8dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="64dp"
+                                    android:layout_height="64dp"
+
+                                    android:padding="10dp"
+                                    android:src="@drawable/cddm" />
+
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:layout_margin="10dp"
+                                    android:background="@color/aliceblue" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:padding="5dp"
+                                    android:text="C.D.D.M"
+                                    android:textColor="@color/colorPrimary" />
+
+                        </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+</LinearLayout>
